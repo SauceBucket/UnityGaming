@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f5352a8887964f7af7b2d47e8d2352e6583828f3f985696871e5ee19edf0865c
-size 140
+Base path: 'F:/2022.3.7f1/Editor/Data', plugins path 'F:/2022.3.7f1/Editor/Data/PlaybackEngines'
+Cmd: initializeCompiler
+
+Cmd: shutdown

@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dd5340b216ffa3f1a01e840ad58af6a093d655715fd83acdb8000578aa2e0cd9
-size 638
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.SearchService;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class MenuInputListener : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+            if (Input.GetKey(KeyCode.Return))
+            {
+            
+            SceneManager.LoadScene(sceneName:"SampleScene");
+            SceneManager.UnloadSceneAsync(sceneName: "Title");
+            }
+
+        
+    }
+}

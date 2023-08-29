@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d2d25c6291ca7e9fd587b9c57b78a2e229bd13a98d5a459e6cb5f9d534873fd2
-size 1418
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meryel.CodeAssist.Editor", "Meryel.CodeAssist.Editor.csproj", "{D2C88F3C-ABE8-09A3-B92D-E78ED68F6D57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{448DB8B4-71D0-F41D-886D-FECAC7B1F481}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2C88F3C-ABE8-09A3-B92D-E78ED68F6D57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2C88F3C-ABE8-09A3-B92D-E78ED68F6D57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2C88F3C-ABE8-09A3-B92D-E78ED68F6D57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2C88F3C-ABE8-09A3-B92D-E78ED68F6D57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{448DB8B4-71D0-F41D-886D-FECAC7B1F481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{448DB8B4-71D0-F41D-886D-FECAC7B1F481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{448DB8B4-71D0-F41D-886D-FECAC7B1F481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{448DB8B4-71D0-F41D-886D-FECAC7B1F481}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
