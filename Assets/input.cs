@@ -19,20 +19,20 @@ public class input : MonoBehaviour
    
     private void MovementCheck() {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
-            rigidbody.velocity += Vector2.up * 0.5f;
+            rigidbody.velocity += Vector2.up * 5f;
             
         }
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
-            rigidbody.velocity += Vector2.down * 0.5f;
+            rigidbody.velocity += Vector2.down * 5f;
             
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
-            rigidbody.velocity += Vector2.left * 0.5f;
+            rigidbody.velocity += Vector2.left * 5f;
             
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            rigidbody.velocity += Vector2.right * 0.5f;
+            rigidbody.velocity += Vector2.right * 5f;
             
         }
         return;
