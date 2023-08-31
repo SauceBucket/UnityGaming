@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyHandler : MonoBehaviour
 {
     //GameObject newenemy = Instantiate(pfbullet, rb.position, Quaternion.identity, transform);
     public GameObject Enemy1;
-    int enemiesAlive = 0;
-
+    public GameObject Boss1;
+    public int enemiesAlive = 0;
+    
+    
     public bool allenemiesDead() {
         if(enemiesAlive>0)return false;
         else return true;
@@ -16,11 +19,21 @@ public class EnemyHandler : MonoBehaviour
     {
         enemiesAlive++;
         GameObject newEnemy1 = Instantiate(Enemy1, transform.position, Quaternion.identity, transform);
+        
     }
 
-     public void enemyDied() {
+    public void spawnBoss1()
+    {
+        enemiesAlive++;
+        GameObject newBoss1 = Instantiate(Boss1, transform.position, Quaternion.identity, transform);
+        
+
+    }
+
+    
+    public void enemyDied() {
         if (enemiesAlive > 0) enemiesAlive--;
-        else print("error tried making enmiesalive negative");
+        else print("error tried making enmies alive negative");
     }
 
 

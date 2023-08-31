@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 224946600763718255}
   - component: {fileID: 1751613111014695717}
   - component: {fileID: -7281981262499478623}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pfPlayerbullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.39, y: 5.81, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -143,7 +143,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 40
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

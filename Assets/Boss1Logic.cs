@@ -4,6 +4,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -11,23 +12,23 @@ public class Boss1Logic : MonoBehaviour
 {
     public Collider2D Collider;
     public GameObject pfbullet;
-    public Rigidbody2D rb;
-    public Healthbar healthbar;
-    public GameObject PlayerObject;
+    public GameObject HealthBar;
     float startingxvalue;
+    public GameObject scalingobject;
+    GameObject healthbarobj;
 
     [SerializeField] private float cooldowntime;
     private float _nextfiretime = 2;
     public bool iscoolingdown => Time.time < _nextfiretime;
     public void startcooldown() => _nextfiretime = Time.time + cooldowntime;
-
+    
     // Start is called before the first frame update
     void Start()
     {
-        startingxvalue = Random.Range(-1f, 1f);
-        transform.position = new Vector3(startingxvalue * 100f, 80f, 0f);
-        rb.position = transform.position;
-        rb.velocity = Vector2.down * 10 + Vector2.left * Random.value * 5 + Vector2.right * Random.value * 5;
+        Vector3 pos = new Vector3(0f, -90f, 0f);
+        healthbarobj = Instantiate(HealthBar, pos , Quaternion.identity);
+        healthbarobj.GetComponent<HealthBarLogic>().sethealth(100);
+        transform.position = pos * -1;
     }
     public void MovementLogic()
     {
@@ -37,14 +38,19 @@ public class Boss1Logic : MonoBehaviour
     }
     public void OnDestroy()
     {
-        GetComponentInParent<EnemyHandler>().enemyDied();
+        transform.parent.GetComponentInParent<EnemyHandler>().enemyDied();
+    }
+
+    public void OnEnable()
+    {
+        
     }
     public void ShootingLogic()
     {
 
         if (!iscoolingdown)
         {
-            GameObject newbullet = Instantiate(pfbullet, rb.position, Quaternion.identity, transform);
+            GameObject newbullet = Instantiate(pfbullet, transform.position, Quaternion.identity, transform);
             newbullet.tag = "EnemyBullet";
             startcooldown();
         }
@@ -54,8 +60,9 @@ public class Boss1Logic : MonoBehaviour
     {
         if (collision.gameObject.tag == "PlayerBullet")
         {
-            --healthbar;
-            if (healthbar <= 0) {
+            Destroy(collision.gameObject);
+            --healthbarobj.GetComponent<HealthBarLogic>().healthtotal;
+            if (healthbarobj.GetComponent<HealthBarLogic>().healthtotal <= 0) {
                 Destroy(gameObject);
                 Destroy(collision.gameObject);
             }

@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5656866119873011776}
   - component: {fileID: 8873525043798519506}
-  - component: {fileID: 4242328403299237215}
   - component: {fileID: -2311096996718446440}
   - component: {fileID: -4679811357636208979}
+  - component: {fileID: -5320210045313757792}
   m_Layer: 0
   m_Name: Boss1
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -52.1, y: 82.7, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,23 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4242328403299237215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244697909469542235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83201023ecbcc47418156d8b99a3a181, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Collider: {fileID: -2311096996718446440}
-  pfbullet: {fileID: 8525371514852127600, guid: 5c5b2e70bb23e5143963c83c54f06d73, type: 3}
-  rb: {fileID: -4679811357636208979}
-  PlayerObject: {fileID: 0}
-  cooldowntime: 2
 --- !u!58 &-2311096996718446440
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -147,7 +130,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244697909469542235}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -166,3 +149,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &-5320210045313757792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244697909469542235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33ecfd089ead4d45bc06f2392d637d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Collider: {fileID: -2311096996718446440}
+  pfbullet: {fileID: 8525371514852127600, guid: 0bf153fa7deec84409cb98ac2acec9ed, type: 3}
+  HealthBar: {fileID: 3962407622147034447, guid: 84e41dae8ab8cbe449295d8ca62ca801, type: 3}
+  scalingobject: {fileID: 611781034136187608, guid: f8b4b55dc5b99754c95b27fe4c4dbec1, type: 3}
+  cooldowntime: 1

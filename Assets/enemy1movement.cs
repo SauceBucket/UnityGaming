@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class enemy1movement : MonoBehaviour
@@ -8,9 +9,8 @@ public class enemy1movement : MonoBehaviour
     public Collider2D Collider;
     public GameObject pfbullet;
     public Rigidbody2D rb;
-    public GameObject PlayerObject;
     float startingxvalue;
-
+    public GameObject scalingobject;
     [SerializeField] private float cooldowntime;
     private float _nextfiretime = 2;
     public bool iscoolingdown => Time.time < _nextfiretime;
@@ -23,30 +23,24 @@ public class enemy1movement : MonoBehaviour
         transform.position = new Vector3(startingxvalue * 100f,80f,0f);
         rb.position = transform.position;
         rb.velocity = Vector2.down *10 + Vector2.left * Random.value * 5 + Vector2.right * Random.value * 5;
+        
     }
     public void MovementLogic() {
 
-        if (transform.position.x < -98 || transform.position.x > 98) {
-            rb.velocity = rb.velocity * -1;
-        
-        }
-
-        if (transform.position.y < 10 || transform.position.y > 98)
-        {
-            rb.velocity = rb.velocity * -1;
-
-        }
+       
 
     }
     public void OnDestroy()
     {
-        GetComponentInParent<EnemyHandler>().enemyDied();
+        //if (transform.parent.gameObject.activeInHierarchy) 
+        //transform.parent.GetComponentInParent<EnemyHandler>().enemyDied();
     }
     public void ShootingLogic() {
 
         if (!iscoolingdown)
         {
-            GameObject newbullet = Instantiate(pfbullet, rb.position, Quaternion.identity, transform);
+            GameObject newbullet = Instantiate(pfbullet, rb.position, Quaternion.identity);
+            newbullet.transform.localScale = Vector3.one * 5;
             newbullet.tag = "EnemyBullet";
             startcooldown();
         }
@@ -55,7 +49,8 @@ public class enemy1movement : MonoBehaviour
     public void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
         if (collision.gameObject.tag == "PlayerBullet") {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            Destroy(gameObject,5);
             Destroy(collision.gameObject);
         }
         
